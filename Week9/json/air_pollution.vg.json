@@ -28,7 +28,7 @@
         },
         {
             "calculate": "datum.PollutionIndex",
-            "as": "PollutionIndexPM"
+            "as": "PollutionIndex"
         }
     ],
     "mark": {
