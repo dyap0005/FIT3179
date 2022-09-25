@@ -7,7 +7,7 @@
         "type": "equalEarth"
     },
     "data": {
-        "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week%209%20Homework/json/countries.topojson",
+        "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week9/json/countries.topojson",
         "format": {
             "type": "topojson",
             "feature": "countries"
@@ -18,7 +18,7 @@
             "lookup": "properties.NAME",
             "from": {
                 "data": {
-                    "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week%209%20Homework/dataset/PM25-air-pollution.csv"
+                    "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week9/dataset/PM25-air-pollution.csv"
                 },
                 "key": "Country",
                 "fields": [
@@ -28,7 +28,7 @@
         },
         {
             "calculate": "datum.PollutionIndex",
-            "as": "PollutionIndex"
+            "as": "PollutionIndexPM"
         }
     ],
     "mark": {
