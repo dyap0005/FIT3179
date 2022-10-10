@@ -14,16 +14,16 @@
   "data": {"url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week9/dataset/PM25-air-pollution.csv"},
   
   "params": [
-		{ "name": "Pollution Index", "value": 100 ,
+		{ "name": "Index", "value": 100 ,
 			"bind": {"input": "range", "min": 0, "max": 100, "step": 1 }
 		}
 	],
   "transform": [
-    { "filter": "datum.PollutionIndex <= Pollution Index" },
+    { "filter": "datum.PollutionIndex <= Index" },
     {"filter": {
       "field": "Country",
       "oneOf": ["United States", "Canada", "France", "Germany", "United Kingdom", "China", "Australia"
-    ,"Egypt", "Russia", "Ghana"]
+    ,"Egypt", "Russia"]
 
     }}
   ],
@@ -42,7 +42,7 @@
         "scale":{
           "domain":[
             "United States", "Canada", "France", "Germany", "United Kingdom", "China", "Australia"
-    ,"Egypt", "Russia", "Ghana"
+    ,"Egypt", "Russia"
           ]
         }
       },
