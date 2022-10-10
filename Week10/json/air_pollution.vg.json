@@ -1,9 +1,17 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "background": "lightgrey",
-    "title": "PM2.5 Index by Country (2017)",
+
     "width": 800,
     "height": 400,
+    "title": {	"text": "PM2.5 Index by Country (2017)",
+        "color": "black",
+        "fontSize": 22 ,
+        "align": "center",
+        "anchor": "middle",
+        "dy": -1,
+        "baseline": "middle"
+
+    },
     "projection": {
         "type": "equirectangular"
     },
