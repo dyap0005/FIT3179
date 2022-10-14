@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+  <!-- CSS file -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+<body>
+  <div class="pure-g">
+    <div class="pure-u-1">
+      <section>
+        <h1>Air Pollution</h1>
+      <p class="intro">Air Pollution is one of the world's largest health and environmental problems that attributed to <span id="figure">11.65%</span>
+    of deaths globally. Almost all of the global population <span id="figure">(99%) </span> are exposed to air pollution levels that put them at risk for diseases,
+    such as cancer, pneumonia and etc. There has been  a record of <span id="figure">6.7 million </span> deaths each year from exposure to ambient and household air pollution and
+    a <span id="figure">2.4 billion </span> people primarily rely on polluting fuels and technologies for cooking.  
+
+    <div class="pure-u-1-1">
+        <section>
+          <div id="choropleth_map"></div>
+  
+          <p class="text">The highest PM2.5 index recorded in 2017 is from <span id="blue">Niger</span> of <span id="figure">94.05</span> which is significantly higher than the rest of the world. 
+            Reported that the air pollution in Niger was caused by natural factors such as dust, sand, emmision of cars, industry waste, and more. Furthermore, countries such as <span id="blue">India</span>, 
+            <span id="blue">Egypt</span> and <span id="blue">Saudi Arabia </span>falls in to the few top countries with the highest PM2.5 index value. 
+          </p>
+            
+            <p class="text">
+            Fortunately, country like india aims to reduce particulate matter emissions by much as <span id="figure">30% </span>
+             from 2017 levels by 2024.
+              
+            </p>
+       
+        </section>
+          
+      </div>
+  
+  
+    <div class="pure-u-1-1">
+      <section>
+        <div id="causes"></div>
+
+        <p class="text">In this visualisation shows the causes of air pollution recorded in the UK. It is clear that the main cause is due to 
+            <span id="blue">Small non-road mobile sources & machinery</span> which is the highest record of  <span id="figure">46600 tonnes</span> emitted PM2.5 in the year 2016.
+
+          
+        
+          <p class="text">
+            This provides evidence on emissions from Non-Road Mobile Machinery (NRMM) and should set out recommendations for policy
+            to reduce these emissions effectively. Moreover, same goes for the <span id="blue">Manufacturing Industry and Construction</span> manufacturing industry and construction
+            
+          </p>
+      
+        </p>
+     
+      </section>
+        
+    </div>
+
+    <div class="pure-u-1-1">
+      <section>
+        <div id="death_rate"></div> 
+      <p class="text"> In this visualisation shows the relationship between the death rate and PM2.5 value by country 
+        As shown above, Countries that is located in Africa and Asia has a higher Pm2.5 to death rate. For example, 
+        <span id="blue">Qatar</span> has a death rate of <span id="figure">150</span> and PM2.5 value of <span id="figure">94.40</span>
+      </span>
+
+            
+        </p>
+      </section>
+      
+    </div>
+
+  
+<script type="text/javascript">
+
+  var spec2 = "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/air_pollution.vg.json";
+  vegaEmbed('#choropleth_map', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/causes_barchart.vs.json";
+  vegaEmbed('#causes', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/death_rate_vs_pm2.5.vg.json";
+  vegaEmbed('#death_rate', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+
+
+
+</script>
+
+</body>
+</html>

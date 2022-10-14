@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 500,
     "height": 500,
-    "title": "Number of deaths by PM2.5 by Country",
+    "title": "Death rate by PM2.5 by Country",
     "data": {
     "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/dataset/death-rate-from-pm25-vs-pm25-concentration.csv"
     },

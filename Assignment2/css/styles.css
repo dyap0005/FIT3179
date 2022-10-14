@@ -1,0 +1,77 @@
+html,
+body {
+    font-size: 16px;
+    background-color: #d9f1f7;
+}
+
+section {
+    background-color: #d9f1f7;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0 0 0;
+    font-size: 200%;
+    font-family: 'Verdana', sans-serif;
+}
+
+h2 {
+    font-size: 150%;
+    font-family: 'Verdana', sans-serif;
+    text-align: center;
+    padding: 20px 0 0 0;
+}
+
+
+#choropleth_map,
+#causes,
+#death_rate{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 0;
+    width: 50%;
+}
+
+
+p {
+    text-align: center;
+    font-family: 'Verdana', sans-serif;
+    padding: 0 50px 20px 50px;
+}
+
+.font {
+    font-family: 'Verdana', sans-serif;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 50px 20px 50px;
+}
+
+#figure {
+    color: red;
+    font-size: 120%;
+}
+
+#blue {
+    color: blue;
+    font-size: 120%;
+}
+
+.text {
+    text-align: left;
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
