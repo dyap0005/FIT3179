@@ -1,0 +1,161 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 500,
+    "title": "Number of deaths by PM2.5 by Country",
+    "data": {
+    "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/dataset/death-rate-from-pm25-vs-pm25-concentration.csv"
+    },
+    "mark": "circle",
+    "params": [
+        {
+          "name": "Population_Above",
+          "value": 0,
+          "bind": {
+            "input": "range",
+            "min": 1000,
+            "max": 1000000000,
+            "step": 10000,
+            "name": "Minimum Population: "
+          }
+        },
+        {
+          "name": "Continent_selection",
+          "bind": {
+            "input": "select",
+            "options": [
+              null,
+              "South America",
+              "North America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania"
+            ],
+            "labels": [
+              "All Continents",
+              "South America",
+              "North America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania"
+            ],
+            "name": "Continent Selection: "
+          }
+        }
+      ],
+    "transform": [
+        {"filter": "datum.Year > 2014 && datum.Year < 2016"},
+        {"filter": "datum.Deaths >= 1"},
+        {"filter": "datum.Pollution > 0"},
+        {"filter": "datum.Population > Population_Above"},
+        {
+          "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+        }
+      ],
+    "encoding": {
+      "x": {
+          "field": "Deaths",
+          "type": "quantitative",
+          "title": "Death Rate",
+          "axis": {"tickCount": 7},
+          "scale": {"type": "log", "domain": [1, 500]},
+          "axis": {"grid": false, "ticks": false}
+          },
+      "y": {
+          "field": "Pollution",
+          "type": "quantitative",
+          "title": "PM2.5 (micrograms per cubic meter)",
+          "axis": {"tickCount": 6},
+          "scale": {"type": "log", "domain": [5, 150]},
+          "axis": {"grid": false, "ticks": false}
+          }
+    },
+    "layer": [
+        {
+            "selection": {
+                "continent_highlight": {
+                  "type": "multi",
+                  "fields": ["Continent"],
+                  "bind": "legend"
+                }
+              },
+            "mark": "circle",
+            "encoding": {
+              "size": {
+                "field": "Population",
+                "type": "quantitative",
+                "scale": {
+                  "type": "threshold",
+                  "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+                  "range": [20, 50, 150, 200, 300, 400]
+                },
+                "legend": {"format": ".1s"}
+              },
+              "color": {
+                "field": "Continent",
+                "type": "nominal",
+                "scale": {
+                  "domain": [
+                    "South America",
+                    "North America",
+                    "Europe",
+                    "Africa",
+                    "Asia",
+                    "Oceania"
+                  ],
+                  "range": [
+                    "#e34a33",
+                    "#7bc043",
+                    "#984ea3",
+                    "#0392cf",
+                    "#f37736",
+                    "#fdf498"
+   
+
+                  ]
+                }
+              },
+              "opacity": {
+                "condition": {"selection": "continent_highlight", "value": 0.85},
+                "value": 0.2
+              },
+              "tooltip": [
+                {"field": "Country", "type": "nominal"},
+                {"field": "Deaths", "type": "quantitative", "format": ","},
+                {"field": "Pollution", "type": "quantitative", "format": ","}
+
+              ]
+            }
+        },
+        {
+            "mark": {
+              "type": "text",
+              "align": "right",
+              "baseline": "middle",
+              "dx": -12,
+              "fontSize": 11.5,
+              "fontStyle": "italic"
+            },
+            "encoding": {
+              "text": {"field": "Country", "type": "nominal"},
+              "color": {"value": "black"},
+              "opacity": {
+                "condition": {
+                  "test": "datum['Country'] == 'China' || datum['Country'] == 'India' || datum['Country'] == 'United States'",
+                  "value": 1
+                },
+                "value": 0
+              },
+              "tooltip": [
+                {"field": "Country", "type": "nominal"},
+                {"field": "Deaths", "type": "quantitative", "format": ","},
+                {"field": "Pollution", "type": "quantitative", "format": ","},
+                {"field": "Population", "type": "quantitative", "format": ","}
+
+              ]
+            }
+        }
+    ]
+}

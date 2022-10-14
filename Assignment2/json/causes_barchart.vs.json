@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title":{
+    "text": "Causes of air pollution in the UK, PM2.5, 2016",
+    "color": "black",
+    "fontSize": 18 ,
+    "align": "center",
+    "anchor": "middle",
+    "dy": -5,
+    "dx": -85,
+    "baseline": "middle"
+  },
+  "description": "A bar chart that shows causes of air pollution in the UK in 2016",
+  "width": 600,
+  "height": 300,
+  "padding": 5,
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  },
+  "data": {"url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/dataset/sources-of-air-pollution-in-the-uk.csv"},
+  "encoding": {
+    "y": {
+      "field": "Entity",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "Causes"
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "PM2dot5",
+      "title": "Tonnes",
+      "axis": {"grid": false, "ticks": false}
+
+    }
+
+  },
+  "layer": 
+    [ {
+        "mark":"bar",
+        "encoding": {
+          "color": {
+            "value": "#8da0cb"
+          }
+
+        }
+      },
+      {
+        "mark": {"type": "text", "align": "left", "xOffset": 5, "aria": false},
+        "encoding": {
+          "text": {"field": "PM2dot5", "type": "quantitative"},
+          "color": {"value": "black"}
+      }
+    }]
+
+}

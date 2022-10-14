@@ -1,0 +1,78 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": 800,
+    "height": 400,
+    "title": {	"text": "PM2.5 Index by Country (2017)",
+        "color": "black",
+        "fontSize": 22 ,
+        "align": "center",
+        "anchor": "middle",
+        "dy": -1,
+        "baseline": "middle"
+
+    },
+    "projection": {
+        "type": "equirectangular"
+    },
+    
+    "layer":[
+        {
+            "data": {
+                "name": "World",
+                "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week9/json/countries.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "countries"
+                }
+                
+            },
+            "transform": [
+                {
+                    "lookup": "properties.NAME",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week9/dataset/PM25-air-pollution.csv"
+                        },
+                        "key": "Country",
+                        "fields": [
+                            "PollutionIndex"
+                        ]
+                    }
+                },
+                {
+                    "calculate": "datum.PollutionIndex ",
+                    "as": "PollutionIndex"
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "stroke": "#757575",
+                "strokeWidth": 0.5
+            },
+            "encoding": {
+                "color": {
+                    "field": "PollutionIndex",
+                    "type": "quantitative",
+                    "scale": {
+                        "domainMid": 50,
+                        "range": "diverging",
+                        "reverse": true
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.NAME",
+                        "type": "nominal",
+                        "title": "Country"
+                    },
+                    {
+                        "field": "PollutionIndex",
+                        "type": "quantitative"
+                    }
+                ]
+            }
+        }
+
+    ]
+}
