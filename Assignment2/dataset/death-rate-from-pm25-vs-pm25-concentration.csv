@@ -1,4 +1,4 @@
-Entity,Code,Year,Deaths,"Pollution, mean annual exposure (micrograms per cubic meter)",Population (historical estimates),Continent
+Entity,Code,Year,Deaths,Pollution, mean annual exposure (micrograms per cubic meter)",Population (historical estimates),Continent
 Abkhazia,OWID_ABK,2015,,,,Asia
 Afghanistan,AFG,1990,30.82269327334309,65.4867935180664,10694804,
 Afghanistan,AFG,1991,29.82618393012146,,10745168,
