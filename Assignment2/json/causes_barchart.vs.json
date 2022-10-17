@@ -13,7 +13,7 @@
   },
 
   "description": "A bar chart that shows causes of air pollution in the UK in 2016",
-  "width": 800,
+  "width": 700,
   "height": 500,
 
   "data": {"url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/dataset/sources-of-air-pollution-in-the-uk.csv"},
