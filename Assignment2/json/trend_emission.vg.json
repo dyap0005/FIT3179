@@ -28,12 +28,14 @@
           "x": {
             "field": "year",
             "type": "temporal",
-            "scale": {"domain": ["1982", "2020"]}
+            "scale": {"domain": ["1982", "2020"]},
+            "title": "Year"
           },
           "y": {
             "field": "index",
             "type": "quantitative",
-            "scale": {"domain": [0, 130]}
+            "scale": {"domain": [0, 130]},
+            "title": "Index"
           },
           "color": {
             "field": "emissions", 
@@ -44,9 +46,9 @@
               }
             },
           "tooltip": [
-            {"field": "emissions", "type": "nominal"},
-            {"field": "year", "type": "temporal", "timeUnit": "year"},
-            {"field": "index", "type": "quantitative", "format": ".2f"}
+            {"field": "emissions", "type": "nominal", "title": "Emission"},
+            {"field": "year", "type": "temporal", "timeUnit": "year", "title": "Year"},
+            {"field": "index", "type": "quantitative", "format": ".2f","title": "Index"}
           ],
           "opacity": {
             "condition": {"param": "highlight", "value": 0.6},
@@ -67,7 +69,7 @@
         "encoding": {
           "text": {
             "value": [
-              "VOC records the highest amount of emission in 1990"
+              "VOC records the highest in 1990"
             ]
           },
           "color": {"value": "black"},
