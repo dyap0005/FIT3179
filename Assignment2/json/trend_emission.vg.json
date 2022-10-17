@@ -1,0 +1,115 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Trends in Emissions of Air Pollutants",
+      "color": "black",
+      "fontSize": 15,
+      "align": "center",
+      "anchor": "middle",
+      "baseline": "middle"
+    },
+    "width": 900,
+    "height": 500, 
+    "background" : "#e5e8e2",
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/dataset/emissions_trend.csv"
+        },
+        "params": [
+          {
+            "name": "highlight",
+            "select": {"type": "point", "fields": ["emissions"]},
+            "bind": "legend"
+          }
+        ],
+        "mark": {"type": "line", "point": true},
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "temporal",
+            "scale": {"domain": ["1982", "2020"]}
+          },
+          "y": {
+            "field": "index",
+            "type": "quantitative",
+            "scale": {"domain": [0, 130]}
+          },
+          "color": {
+            "field": "emissions", 
+            "type": "nominal",
+            "title": "Emissions",
+            "legend": {
+               "labelExpr": "{'nh3': 'Ammonia', 'nox': 'Nitrogen Oxides', 'so2': 'Sulphur Dioxide', 'voc': 'Volatile Organic Compound', 'pm25': 'PM2.5', 'pm10': 'PM10'}[datum.label]"
+              }
+            },
+          "tooltip": [
+            {"field": "emissions", "type": "nominal"},
+            {"field": "year", "type": "temporal", "timeUnit": "year"},
+            {"field": "index", "type": "quantitative", "format": ".2f"}
+          ],
+          "opacity": {
+            "condition": {"param": "highlight", "value": 0.6},
+            "value": 0.2
+          }
+          
+        }
+      },
+      {
+        "data": {"values": [{"b": 120}]},
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+            "value": [
+              "VOC records the highest amount of emission in 1990"
+            ]
+          },
+          "color": {"value": "black"},
+          "x": {"datum": {"year": 2000}},
+          "y": {
+            "field": "b",
+            "type": "quantitative",
+            "title": "Emission Index"
+          }
+        }
+      },
+      {
+        "data": {"values": [{"b": 70}]},
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+  
+        },
+        "encoding": {
+          "text": {
+            "value": [
+              "The reduction in use of coal for domestic heating",
+               "and power generation has been a major factor",
+               " in reducing emissions of particulate matter"
+            ]
+          },
+          "color": {"value": "black"},
+          "x": {"datum": {"year": 2019}},
+          "y": {
+            "field": "b",
+            "type": "quantitative",
+            "title": "Emission Index"
+          }
+        }
+      },
+      {
+        "mark": {"type": "rule", "strokeDash": [2, 2], "size": 2},
+        "data": {"values": [{"domain": [0, 140]}]},
+        "encoding": {"y": {"value": 44}}
+      }
+    ]
+  }
