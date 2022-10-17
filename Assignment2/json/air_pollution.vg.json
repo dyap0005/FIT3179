@@ -3,9 +3,11 @@
 
     "width": 900,
     "height": 500,
+    "background" : "#e5e8e2",
+    
     "title": {	"text": "PM2.5 Index by Country (2017)",
         "color": "black",
-        "fontSize": 22 ,
+        "fontSize": 15 ,
         "align": "center",
         "anchor": "middle",
         "dy": -1,
@@ -18,11 +20,25 @@
     "layer":[
         {
             "data": {
-                "name": "World",
-                "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Week9/json/countries.topojson",
+                "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/ne_110m.json",
                 "format": {
                     "type": "topojson",
-                    "feature": "countries"
+                    "feature": "ne_110m_graticules_30"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": null,
+                "stroke": "lightgray"
+            }
+        },
+        {
+            "data": {
+                "name": "World",
+                "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/ne_110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
                 }
                 
             },
@@ -46,18 +62,21 @@
             ],
             "mark": {
                 "type": "geoshape",
-                "stroke": "#757575",
-                "strokeWidth": 0.5
+                "stroke": "#303030",
+                "strokeWidth": 1
             },
             "encoding": {
                 "color": {
                     "field": "PollutionIndex",
                     "type": "quantitative",
                     "scale": {
+                        "domainMin": 0,
+                        "domainMax": 100,
                         "domainMid": 50,
                         "range": "diverging",
                         "reverse": true
-                    }
+                    },
+                    "title" : "PM2.5 Index"
                 },
                 "tooltip": [
                     {
@@ -67,11 +86,30 @@
                     },
                     {
                         "field": "PollutionIndex",
-                        "type": "quantitative"
+                        "type": "quantitative",
+                        "title": "PM2.5 Index",
+                        "format": ".2f"
                     }
                 ]
             }
+        },
+        {
+            "data": {
+              "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/ne_110m.json",
+              "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+            },
+            "transform": [{"filter": "datum.properties.NAME == 'Niger'"}],
+            "mark": {
+              "type": "text",
+              "font": "Arial",
+              "x": 420,
+              "y": 280,
+              "color": "black",
+              "fontSize": 10
+            },
+            "encoding": {"text": {"value": [" Niger has the HIGHEST", "Migration Rate -", "here they have free", "education & healthcare!"]}}
         }
 
     ]
+
 }

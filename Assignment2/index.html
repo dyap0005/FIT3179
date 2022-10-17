@@ -21,29 +21,31 @@
     <div class="pure-u-1">
       <section>
         <h1>Air Pollution</h1>
-      <p class="intro">Air Pollution is one of the world's largest health and environmental problems that attributed to <span id="figure">11.65%</span>
-    of deaths globally. Almost all of the global population <span id="figure">(99%) </span> are exposed to air pollution levels that put them at risk for diseases,
-    such as cancer, pneumonia and etc. There has been  a record of <span id="figure">6.7 million </span> deaths each year from exposure to ambient and household air pollution and
-    a <span id="figure">2.4 billion </span> people primarily rely on polluting fuels and technologies for cooking.  
+            <p class="intro">Air Pollution is one of the world's largest health and environmental problems that attributed to <span id="figure">11.65%</span>
+          of deaths globally. Almost all of the global population <span id="figure">(99%) </span> are exposed to air pollution levels that put them at risk for diseases,
+          such as cancer, pneumonia and etc. There has been  a record of <span id="figure">6.7 million </span> deaths each year from exposure to ambient and household air pollution and
+          a <span id="figure">2.4 billion </span> people primarily rely on polluting fuels and technologies for cooking.  
+      </section>
+    </div>    
 
     <div class="pure-u-1-1">
-        <section>
-          <div id="choropleth_map"></div>
-  
-          <p class="text">The highest PM2.5 index recorded in 2017 is from <span id="blue">Niger</span> of <span id="figure">94.05</span> which is significantly higher than the rest of the world. 
-            Reported that the air pollution in Niger was caused by natural factors such as dust, sand, emmision of cars, industry waste, and more. Furthermore, countries such as <span id="blue">India</span>, 
-            <span id="blue">Egypt</span> and <span id="blue">Saudi Arabia </span>falls in to the few top countries with the highest PM2.5 index value. 
-          </p>
-            
-            <p class="text">
-            Fortunately, country like india aims to reduce particulate matter emissions by much as <span id="figure">30% </span>
-             from 2017 levels by 2024.
-              
-            </p>
-       
-        </section>
+      <section>
+
+        <div id="choropleth_map"></div>
+        <p class="text">The highest PM2.5 index recorded in 2017 is from <span id="blue">Niger</span> of <span id="figure">94.05</span> which is significantly higher than the rest of the world. 
+          Reported that the air pollution in Niger was caused by natural factors such as dust, sand, emmision of cars, industry waste, and more. Furthermore, countries such as <span id="blue">India</span>, 
+          <span id="blue">Egypt</span> and <span id="blue">Saudi Arabia </span>falls in to the few top countries with the highest PM2.5 index value. 
+        </p>
           
-      </div>
+          <p class="text">
+          Fortunately, country like india aims to reduce particulate matter emissions by much as <span id="figure">30% </span>
+            from 2017 levels by 2024.
+            
+          </p>
+      
+      </section>
+        
+    </div>
   
   
     <div class="pure-u-1-1">
@@ -85,17 +87,17 @@
 <script type="text/javascript">
 
   var spec2 = "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/air_pollution.vg.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
+  vegaEmbed('#choropleth_map', spec2, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
   var spec2 = "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/causes_barchart.vs.json";
-  vegaEmbed('#causes', spec2).then(function(result) {
+  vegaEmbed('#causes', spec2, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
   var spec2 = "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/json/death_rate_vs_pm2.5.vg.json";
-  vegaEmbed('#death_rate', spec2).then(function(result) {
+  vegaEmbed('#death_rate', spec2, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
