@@ -1,15 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background" : "#e5e8e2",
+
   "title":{
     "text": "Causes of air pollution in the UK, PM2.5, 2016",
     "color": "black",
-    "fontSize": 18 ,
+    "fontSize": 15 ,
     "align": "center",
     "anchor": "middle",
     "dy": -5,
-    "dx": -85,
     "baseline": "middle"
   },
+
   "description": "A bar chart that shows causes of air pollution in the UK in 2016",
   "width": 800,
   "height": 500,
@@ -36,7 +38,7 @@
         "mark":"bar",
         "encoding": {
           "color": {
-            "value": "#8da0cb"
+            "value": "#36600c"
           }
 
         }

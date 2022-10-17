@@ -1,24 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 900,
+    "width": 800,
     "height": 500,
+    "background" : "#e5e8e2",
     "title": "Death rate by PM2.5 by Country",
     "data": {
     "url": "https://raw.githubusercontent.com/dyap0005/FIT3179/main/Assignment2/dataset/death-rate-from-pm25-vs-pm25-concentration.csv"
     },
     "mark": "circle",
     "params": [
-        {
-          "name": "Population_Above",
-          "value": 0,
-          "bind": {
-            "input": "range",
-            "min": 1000,
-            "max": 1000000000,
-            "step": 10000,
-            "name": "Minimum Population: "
-          }
-        },
         {
           "name": "Continent_selection",
           "bind": {
@@ -49,7 +39,6 @@
         {"filter": "datum.Year > 2014 && datum.Year < 2016"},
         {"filter": "datum.Deaths >= 1"},
         {"filter": "datum.Pollution > 0"},
-        {"filter": "datum.Population > Population_Above"},
         {
           "filter": "Continent_selection == null || datum.Continent == Continent_selection"
         }
@@ -89,7 +78,7 @@
                 "scale": {
                   "type": "threshold",
                   "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
-                  "range": [20, 50, 150, 200, 300, 400]
+                  "range": [10, 70, 170, 350, 500, 1000]
                 },
                 "legend": {"format": ".1s"}
               },
@@ -136,7 +125,8 @@
               "baseline": "middle",
               "dx": -12,
               "fontSize": 11.5,
-              "fontStyle": "italic"
+              "fontStyle": "italic",
+              "fontWeight": "bold"
             },
             "encoding": {
               "text": {"field": "Country", "type": "nominal"},
@@ -156,6 +146,19 @@
 
               ]
             }
+        },
+        {
+
+          "transform": [{"filter": "datum.Country == 'India'"}],
+          "mark": {
+            "type": "text",
+            "font": "Arial",
+            "dx": -100,
+            "dy": -30,
+            "color": "black",
+            "fontSize": 10
+          },
+          "encoding": {"text": {"value": [" India has the Highest", "Death Rate over PM2.5 Index", "in term of it's", "High Population!"]}}
         }
     ]
 }
