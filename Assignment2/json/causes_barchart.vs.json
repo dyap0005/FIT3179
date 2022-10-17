@@ -11,8 +11,8 @@
     "baseline": "middle"
   },
   "description": "A bar chart that shows causes of air pollution in the UK in 2016",
-  "width": 600,
-  "height": 300,
+  "width": 900,
+  "height": 500,
   "padding": 5,
   "config": {
     "style": {
